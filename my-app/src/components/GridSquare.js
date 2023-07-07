@@ -2,7 +2,7 @@ import React from 'react'
 
 function GridSquare({boardValue, selectSquare}) {
   return (
-    <div className='gridItem' onClick={selectSquare}>{boardValue}</div>
+    <div className='gridItem' data-testid="gridSquareTest"  onClick={selectSquare}>{boardValue}</div>
   )
 }
 

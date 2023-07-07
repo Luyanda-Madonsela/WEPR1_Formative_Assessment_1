@@ -7,7 +7,7 @@ import ResetButton from './components/ResetButton';
 import { Patterns } from './WinningPatterns';
 
 function App() {
-  const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']);
   const [player, setPlayer] = useState("O");
   const [winner, setWinner] = useState("Game In Progress");
   const [playerOWins, setPlayerOWins] = useState(0);
@@ -86,6 +86,7 @@ function App() {
     }
     else if (filled && winnerFound===true) {
       setTotalGames(totalGames + 1);
+      resetBoard();
     }
   };
 
@@ -93,7 +94,7 @@ function App() {
     setBoard(["", "", "", "", "", "", "", "", ""]);
     setPlayer("O");
     setWinner("Game In Progress");
-    setWinnerFound(true);
+    setWinnerFound(false);
   };
 
   return (
@@ -110,9 +111,10 @@ function App() {
           <h2 className='resultDisplay'> {winner}</h2>
 
           <div className='grid'>
-          <GridSquare 
+                <GridSquare 
                   boardValue={board[0]}
                   selectSquare={()=>{selectSquare(0)}}
+                  data-testid="gridSquareTest1"
                 />
                 <GridSquare 
                   boardValue={board[1]}
@@ -120,7 +122,7 @@ function App() {
                 />
                 <GridSquare 
                   boardValue={board[2]}
-                  selectSquare={()=>{selectSquare(2)}}               
+                  selectSquare={()=>{selectSquare(2)}}          
                 />
                 <GridSquare 
                   boardValue={board[3]}
